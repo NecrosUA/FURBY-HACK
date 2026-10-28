@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.log
+
+# Piper voice models, downloaded locally
+models/
+
+# Sample DLC files (Hasbro-derived content), downloaded locally
+samples/
+
+# Local Claude Code instructions, handoff and spec (not published)
+CLAUDE.md
+SPEC.md
+handoff.md
+.claude/

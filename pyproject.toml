@@ -1,0 +1,48 @@
+[project]
+name = "furbyhack"
+version = "0.1.0"
+description = "Modern desktop hub for the Hasbro Furby Connect"
+requires-python = ">=3.12"
+dependencies = [
+    "a1800-codec",
+    "bleak",
+    "numpy",
+    "pillow",
+    "piper-tts",
+    "pystray",
+]
+
+# GUI script: on Windows starts without a console window
+[project.gui-scripts]
+furbyhack = "furbyhack.__main__:main"
+
+[dependency-groups]
+dev = [
+    "pyright",
+    "pytest",
+    "ruff",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "ASYNC"]
+
+[tool.pyright]
+include = ["src", "tests"]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+a1800-codec = { path = "wheels/a1800_codec-1.1.0-cp38-abi3-win_amd64.whl" }
